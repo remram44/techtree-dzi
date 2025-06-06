@@ -1,0 +1,1 @@
+out/out_files/*/*.png filter=lfs diff=lfs merge=lfs -text
