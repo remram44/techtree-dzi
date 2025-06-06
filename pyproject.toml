@@ -1,0 +1,9 @@
+[project]
+name = "techtree"
+version = "0.0.0"
+description = "Tech tree to pyramidal image"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "selenium",
+]
