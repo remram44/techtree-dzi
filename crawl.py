@@ -42,4 +42,6 @@ if __name__ == "__main__":
     #     can only view about 839px vertically because header/footer
     # that's 276 images
 
+    # TODO: Images don't load properly on the very left, need to re-crawl with higher overlap
+
     driver.quit()
