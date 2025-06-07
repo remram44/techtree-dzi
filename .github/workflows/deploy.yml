@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - pages
+
+jobs:
+  deploy:
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # Yes, copying 4 times is the only way
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+      - uses: actions/configure-pages@v5
+      - run: |
+          mkdir public
+          cp -a index.html openseadragon out public/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+      - id: deployment
+        uses: actions/deploy-pages@v4
